@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleo's Bakery</title>
+    <meta name="description" content="Cleo's Bakery offers freshly baked goods with fast delivery. Explore our menu and order your favorites today.">
+    <meta name="keywords" content="bakery, freshly baked, delivery, cookies, desserts, Cleo's Bakery">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #f8b400;
+            padding: 1em;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #fff;
+        }
+        nav a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: #fff;
+        }
+        section {
+            padding: 2em;
+            text-align: center;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2em;
+        }
+        .features div {
+            width: 30%;
+        }
+        .menu-section {
+            margin-top: 1em;
+        }
+        .contact-info, .socials, .delivery-hours {
+            margin-top: 1em;
+        }
+        .socials a {
+            margin: 0 0.5em;
+            text-decoration: none;
+            color: #f8b400;
+        }
+        footer {
+            background-color: #f8b400;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        button {
+            background-color: #f8b400;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d69a00;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cleo's Bakery</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="home">
+            <h2>Welcome to Cleo's Bakery</h2>
+            <p>Freshly Baked, Fast Delivered</p>
+            <img src="menu.jpg" alt="Welcome to Cleo's Bakery">
+            <div class="features">
+                <div>
+                    <h3>Fast Deliveries</h3>
+                    <p>Get your orders quickly with our efficient delivery system.</p>
+                    <img src="swiss.jpg" alt="Fast Deliveries">
+                </div>
+                <div>
+                    <h3>Freshly Baked</h3>
+                    <p>All our products are freshly baked daily to ensure top quality.</p>
+                    <img src="scones.jpg" alt="Freshly Baked">
+                </div>
+                <div>
+                    <h3>Various Options</h3>
+                    <p>We offer a wide variety of baked goods to suit all tastes.</p>
+                    <img src="blahh.jpg" alt="Various Options">
+                </div>
+            </div>
+        </section>
+        
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <img src="men.jpg" alt="Our Menu">
+            <div class="menu-section">
+                <h3>Cookies</h3>
+                <img src="cook.jpg" alt="Cookies">
+                <p><strong>5 Liters:</strong> English Scones (R350), Scones (R250), Biscuits (R300)</p>
+                <p><strong>10 Liters:</strong> English Scones (R600), Scones (R450), Biscuits (R550)</p>
+                <p><strong>20 Liters:</strong> English Scones (R1050), Scones (R600), Biscuits (R1000)</p>
+            </div>
+            <div class="menu-section">
+                <h3>Desserts</h3>
+                <img src="des.jpg" alt="Desserts">
+                <p>Chocolate Cheesecake (R300)</p>
+                <p>Swiss Roll (R180)</p>
+                <p>Banana Bread (R30)</p>
+                <p>Queen's Cake (10 per packet) (R55)</p>
+                <p>Cupcakes (10 per packet) (R95)</p>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <img src="" alt="Contact Us">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <div class="contact-info">
+                <p>Email: info@cleosbakery.com</p>
+                <p>Phone: 123-456-7890</p>
+                <div class="socials">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+            <div class="delivery-hours">
+                <h3>Delivery Hours</h3>
+                <p>Monday - Friday: 8 AM - 6 PM</p>
+                <p>Saturday: 9 AM - 5 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Cleo's Bakery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
