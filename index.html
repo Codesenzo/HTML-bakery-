@@ -7,171 +7,338 @@
     <meta name="description" content="Cleo's Bakery offers freshly baked goods with fast delivery. Explore our menu and order your favorites today.">
     <meta name="keywords" content="bakery, freshly baked, delivery, cookies, desserts, Cleo's Bakery">
     <style>
+        /* CSS Variables for easy theme adjustment */
+        :root {
+            --primary-color: #e89a58;      /* Warm orange */
+            --secondary-color: #ba6a3e;     /* Deep brown-orange */
+            --text-color: #4a3d2a;         /* Rich dark brown */
+            --bg-color: #fef8f2;           /* Light cream */
+            --accent-color: #f7c1a5;       /* Soft peach accent */
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
         }
-        header {
-            background-color: #f8b400;
-            padding: 1em;
+        header, footer {
+            background-color: var(--primary-color);
+            color: #fff;
             text-align: center;
+            padding: 1em;
         }
         header h1 {
-            margin: 0;
-            font-size: 2em;
-            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
         }
         nav a {
             margin: 0 1em;
             text-decoration: none;
             color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
         }
-        section {
-            padding: 2em;
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1em;
+        }
+        button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0.7em 1.5em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Home Section */
+        #home {
             text-align: center;
+            margin: 2em 0;
         }
+        #home img {
+            width: 70%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px var(--card-shadow);
+            margin-top: 1em;
+        }
+
+        /* Features Section */
         .features {
             display: flex;
             justify-content: space-around;
             margin-top: 2em;
+            text-align: center;
+            gap: 1.5em;
         }
         .features div {
             width: 30%;
         }
-        .menu-section {
+        .features img {
+            width: 80%;
+            max-width: 250px;
+            border-radius: 8px;
             margin-top: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        .contact-info, .socials, .delivery-hours {
-            margin-top: 1em;
+
+        /* Menu Section */
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5em;
+            justify-content: center;
         }
-        .socials a {
-            margin: 0 0.5em;
-            text-decoration: none;
-            color: #f8b400;
-        }
-        footer {
-            background-color: #f8b400;
-            color: #fff;
+        .menu-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(33% - 1em);
+            padding: 1.5em;
+            box-shadow: 0 4px 6px var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
         }
-        button {
-            background-color: #f8b400;
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .menu-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+        }
+        .menu-item img {
+            border-radius: 8px;
+            margin-bottom: 1em;
+            width: 100%;
+        }
+
+        /* Customer Reviews */
+        .reviews-section {
+            background-color: #f1f1f1;
+            padding: 2em;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .review-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        .review-slide {
+            display: none;
+            font-style: italic;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .review-slide.active {
+            display: block;
+            opacity: 1;
+        }
+        .review-slide h4 {
+            color: var(--primary-color);
+            margin-top: 1em;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-top: 1em;
+        }
+        .nav-button {
+            background-color: var(--primary-color);
             color: #fff;
-            border: none;
             padding: 0.5em 1em;
             cursor: pointer;
+            border: none;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        button:hover {
-            background-color: #d69a00;
+        .nav-button:hover {
+            background-color: var(--secondary-color);
         }
-        nav a:hover {
-            text-decoration: underline;
+
+        /* Order Form */
+        #order-info form div {
+            margin-bottom: 1em;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+        #order-info label {
+            display: block;
+            font-weight: bold;
+        }
+        #order-info input, #order-info select {
+            width: 100%;
+            padding: 0.5em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <h1>Cleo's Bakery</h1>
         <nav>
             <a href="#home">Home</a>
             <a href="#menu">Menu</a>
+            <a href="#order-info">Place Order</a>
             <a href="#contact">Contact Us</a>
         </nav>
     </header>
-    
-    <main>
-        <section id="home">
-            <h2>Welcome to Cleo's Bakery</h2>
-            <p>Freshly Baked, Fast Delivered</p>
-            <img src="menu.jpg" alt="Welcome to Cleo's Bakery">
-            <div class="features">
-                <div>
-                    <h3>Fast Deliveries</h3>
-                    <p>Get your orders quickly with our efficient delivery system.</p>
-                    <img src="swiss.jpg" alt="Fast Deliveries">
-                </div>
-                <div>
-                    <h3>Freshly Baked</h3>
-                    <p>All our products are freshly baked daily to ensure top quality.</p>
-                    <img src="scones.jpg" alt="Freshly Baked">
-                </div>
-                <div>
-                    <h3>Various Options</h3>
-                    <p>We offer a wide variety of baked goods to suit all tastes.</p>
-                    <img src="blahh.jpg" alt="Various Options">
-                </div>
-            </div>
-        </section>
-        
-        <section id="menu">
-            <h2>Our Menu</h2>
-            <img src="men.jpg" alt="Our Menu">
-            <div class="menu-section">
-                <h3>Cookies</h3>
+
+    <!-- Home Section -->
+    <section id="home" class="container">
+        <h2>Welcome to Cleo's Bakery</h2>
+        <p>Freshly Baked, Fast Delivered</p>
+        <img src="menu.jpg" alt="Welcome to Cleo's Bakery">
+    </section>
+
+    <!-- Features Section -->
+    <section class="features container">
+        <div>
+            <h3>Fast Deliveries</h3>
+            <p>Get your orders quickly with our efficient delivery system.</p>
+            <img src="swiss.jpg" alt="Fast Deliveries">
+        </div>
+        <div>
+            <h3>Freshly Baked</h3>
+            <p>All our products are freshly baked daily to ensure top quality.</p>
+            <img src="scones.jpg" alt="Freshly Baked">
+        </div>
+        <div>
+            <h3>Various Options</h3>
+            <p>We offer a wide variety of baked goods to suit all tastes.</p>
+            <img src="blahh.jpg" alt="Various Options">
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="container">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
                 <img src="cook.jpg" alt="Cookies">
-                <p><strong>5 Liters:</strong> English Scones (R350), Scones (R250), Biscuits (R300)</p>
-                <p><strong>10 Liters:</strong> English Scones (R600), Scones (R450), Biscuits (R550)</p>
-                <p><strong>20 Liters:</strong> English Scones (R1050), Scones (R600), Biscuits (R1000)</p>
+                <h3>Cookies</h3>
+                <p><strong>Starting at R250</strong></p>
+                <button onclick="openModal('Cookies', 'Freshly baked cookies available in various flavors. Try our classic Scones and Biscuits.')">View Details</button>
             </div>
-            <div class="menu-section">
-                <h3>Desserts</h3>
+            <div class="menu-item">
                 <img src="des.jpg" alt="Desserts">
-                <p>Chocolate Cheesecake (R300)</p>
-                <p>Swiss Roll (R180)</p>
-                <p>Banana Bread (R30)</p>
-                <p>Queen's Cake (10 per packet) (R55)</p>
-                <p>Cupcakes (10 per packet) (R95)</p>
+                <h3>Desserts</h3>
+                <p><strong>Starting at R30</strong></p>
+                <button onclick="openModal('Desserts', 'Delicious desserts like Chocolate Cheesecake, Swiss Roll, Banana Bread, and more.')">View Details</button>
             </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <img src="" alt="Contact Us">
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Submit</button>
-            </form>
-            <div class="contact-info">
-                <p>Email: info@cleosbakery.com</p>
-                <p>Phone: 123-456-7890</p>
-                <div class="socials">
-                    <a href="#">Facebook</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
-                </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order-info" class="container">
+        <h2>Place Your Order</h2>
+        <form id="orderForm" onsubmit="validateOrderForm(event)">
+            <div>
+                <label for="customerName">Name:</label>
+                <input type="text" id="customerName" name="customerName" required>
             </div>
-            <div class="delivery-hours">
-                <h3>Delivery Hours</h3>
-                <p>Monday - Friday: 8 AM - 6 PM</p>
-                <p>Saturday: 9 AM - 5 PM</p>
-                <p>Sunday: Closed</p>
+            <div>
+                <label for="customerEmail">Email:</label>
+                <input type="email" id="customerEmail" name="customerEmail" required>
             </div>
-        </section>
-    </main>
-    
+            <div>
+                <label for="customerPhone">Contact Number:</label>
+                <input type="tel" id="customerPhone" name="customerPhone" required>
+            </div>
+            <div>
+                <label for="menuItem">Select Menu Item:</label>
+                <select id="menuItem" name="menuItem" required>
+                    <option value="">-- Choose an item --</option>
+                    <option value="Cookies">Cookies - Starting at R250</option>
+                    <option value="Desserts">Desserts - Starting at R30</option>
+                </select>
+            </div>
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="100" required>
+            </div>
+            <button type="submit">Submit Order</button>
+        </form>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <h2>Customer Reviews</h2>
+        <div class="review-container">
+            <div class="review-slide active">
+                <p>"These cookies are the best I've ever had!"</p>
+                <h4>- Sarah P.</h4>
+            </div>
+            <div class="review-slide">
+                <p>"Absolutely delightful pastries!"</p>
+                <h4>- James K.</h4>
+            </div>
+            <div class="review-slide">
+                <p>"Fast delivery and fantastic taste!"</p>
+                <h4>- Karen L.</h4>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="prevReview()">&#10094; Previous</button>
+            <button class="nav-button" onclick="nextReview()">Next &#10095;</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Cleo's Bakery. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Reviews, Form Validation, and Order Form -->
+    <script>
+        // Customer Reviews Slideshow
+        const reviews = document.querySelectorAll(".review-slide");
+        let currentReviewIndex = 0;
+
+        function showReview(index) {
+            reviews.forEach((review, i) => {
+                review.classList.toggle("active", i === index);
+            });
+        }
+
+        function nextReview() {
+            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+            showReview(currentReviewIndex);
+        }
+
+        function prevReview() {
+            currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+            showReview(currentReviewIndex);
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(nextReview, 5000);
+
+        // Order Form Validation
+        function validateOrderForm(event) {
+            event.preventDefault();
+            alert("Order Submitted!");
+        }
+    </script>
 </body>
 </html>
-
-
-
